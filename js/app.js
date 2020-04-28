@@ -135,6 +135,7 @@ function goodBalloon(){
   var balloonTop = Math.floor(Math.random() * (90 - 15) + 10);
   createImg.src = newBalloon.imageSrc;
   createImg.id = newBalloon.color;
+  createImg.className = 'balloon';
   createImg.style.position = 'absolute';
   createImg.style.left = balloonLeft + '%';
   createImg.style.top = balloonTop + '%'; // min 100 px
@@ -151,6 +152,7 @@ function badBalloon(){
   var createImg = document.createElement('img');
   var newRandomBalloon = new Balloon(randomIndex);
   createImg.id = newRandomBalloon.color;
+  createImg.className = 'balloon';
   createImg.src = newRandomBalloon.imageSrc;
   createImg.style.position = 'absolute';
   createImg.style.left = balloonLeft + '%';
