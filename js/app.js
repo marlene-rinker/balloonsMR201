@@ -221,16 +221,16 @@ function stopTimer() {
 function renderGif() {
   var target = document.getElementById('game');
   var createImg = document.createElement('img');
-  createImg.src = "https://media.giphy.com/media/NSHwhrFyDcLY1RSkkw/source.gif";
-  createImg.id = "balloon-gif";
+  createImg.src = 'https://media.giphy.com/media/NSHwhrFyDcLY1RSkkw/source.gif';
+  createImg.id = 'balloon-gif';
   target.appendChild(createImg);
   setTimeout( function(){
     popBalloon();
     createImg.remove();
     var target = document.getElementById('game');
     var createImgGameOver = document.createElement('img');
-    createImgGameOver.src = "https://media.giphy.com/media/1hMbkOaFfYmZvvEBq9/source.gif";
-    createImgGameOver.id = "game-over-gif";
+    createImgGameOver.src = 'https://media.giphy.com/media/1hMbkOaFfYmZvvEBq9/source.gif';
+    createImgGameOver.id = 'game-over-gif';
     target.appendChild(createImgGameOver);
   }, 1900);
 }
