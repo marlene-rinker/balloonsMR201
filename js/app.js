@@ -284,6 +284,7 @@ function endGame() {
 
   setTimeout( function(){
     // send user to results page
-    window.location.href = 'https://mgalush.github.io/balloons/results';
+    // window.location.href = 'https://mgalush.github.io/balloons/results';
+    window.location = 'results.html';
   }, 6000);
 }

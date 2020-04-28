@@ -37,3 +37,17 @@ h2 {
 footer {
   margin-top: 20px;
 }
+
+#resetScores {
+  font-size: 15px;
+  color: white;
+  background-color: rgb(98,2,171);
+  margin-top: 15px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(98,2,171);
+  border-radius: 5px;
+  position: absolute;
+  right: 30px;
+  
+}
