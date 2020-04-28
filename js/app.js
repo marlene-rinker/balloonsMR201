@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 /* eslint-disable no-trailing-spaces */
 'use strict';
 
@@ -114,9 +115,6 @@ function renderInstructions() {
   h1.id = 'instructions';
   h1.innerHTML = 'Click the ' + Balloon.colorArray[Balloon.goodBalloonArray[0]].color + ' balloons';
   h1.style.backgroundColor = Balloon.colorArray[Balloon.goodBalloonArray[0]].value;
-  setInterval(function() {
-    h1.style.backgroundColor = '';
-  }, 1000);
 
   target.appendChild(h1);
 }
@@ -125,9 +123,7 @@ function goodBalloon(){
   Balloon.goodBalloonArray = [];
 
   var randomIndex = Math.floor(Math.random() * (Balloon.colorArray.length));
-  Balloon.goodBalloonArray.push(randomIndex)
-  console.log('random index' + randomIndex);
-  console.log('random index array after it was pushed ' + Balloon.goodBalloonArray);
+  Balloon.goodBalloonArray.push(randomIndex);
   var divEl = document.getElementById('game');
   var createImg = document.createElement('img');
   var newBalloon = new Balloon(randomIndex);
@@ -148,7 +144,6 @@ function badBalloon(){
   var balloonLeft = Math.floor(Math.random() * (100 - 10));
   var balloonTop = Math.floor(Math.random() * (90 - 15) + 10);
   var randomIndex = Math.floor(Math.random() * (Balloon.colorArray.length));
-  console.log(randomIndex);
   var createImg = document.createElement('img');
   var newRandomBalloon = new Balloon(randomIndex);
   createImg.id = newRandomBalloon.color;
@@ -174,6 +169,7 @@ function renderBalloons() {
   renderInstructions();
   balloonCount = balloonCount + 1;
   badBalloon();
+  debugger;
 
   var sec = 25;
   for (var i = 0; i < randomBalloon; i++) {
@@ -243,8 +239,7 @@ function renderGif() {
 function handleTimer(event) {
   var sec = 30;
   var timer = setInterval(function () {
-    document.getElementById('timer').innerHTML =
-      '00:' + sec.toString().padStart(2, '0');
+    document.getElementById('timer').innerHTML ='00:' + sec.toString().padStart(2, '0');
     sec--;
     if (sec < 0) {
       clearInterval(timer);
@@ -269,7 +264,7 @@ function timerRender(interval) {
 function endGame() {
   document.getElementById('game').remove();
   var createDiv = document.createElement('div');
-  var target = document.getElementById('deleteMe')
+  var target = document.getElementById('deleteMe');
   createDiv.id = 'game';
   target.appendChild(createDiv);
 
