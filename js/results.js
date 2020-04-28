@@ -4,7 +4,7 @@ function renderResults() {
   var stringResultsInStorage = JSON.parse(localStorage.getItem('resultsInLocalStorage'));
   var tableToTarget = document.getElementById('results');
   renderTableHeader(tableToTarget);
- 
+
   // put results inside table
   for (
     var i = 0; i < stringResultsInStorage[stringResultsInStorage.length - 1].allScores.length; i++) {
@@ -26,35 +26,21 @@ function renderResults() {
   console.log(num);
   console.log(stringResultsInStorage[0].name);
   console.log(stringResultsInStorage[1].name);
-  for (var i = num; i >= 0; i--){
-    var newTrEl = document.createElement('tr');
-    var newTdEl = document.createElement('td');
-    newTdEl.textContent = stringResultsInStorage[i].name;
+  for (var j = num; j >= 0; j--){
+    newTrEl = document.createElement('tr');
+    newTdEl = document.createElement('td');
+    newTdEl.textContent = stringResultsInStorage[j].name;
 
     newTrEl.appendChild(newTdEl);
     newTdEl = document.createElement('td');
-    newTdEl.textContent = stringResultsInStorage[i].currentScore;
+    newTdEl.textContent = stringResultsInStorage[j].currentScore;
     newTrEl.appendChild(newTdEl);
     tableToTarget.appendChild(newTrEl);
   }
-
-  // for (
-  //   var i = 0; i < stringResultsInStorage[stringResultsInStorage.length - 1].allScores.length; i++) {
-  //   var newTrEl = document.createElement('tr');
-  //   var newTdEl = document.createElement('td');
-  //   newTdEl.textContent = stringResultsInStorage[stringResultsInStorage.length - 1].name;
-  //   newTrEl.appendChild(newTdEl);
-  //   newTdEl = document.createElement('td');
-  //   newTdEl.textContent = stringResultsInStorage[stringResultsInStorage.length - 1].allScores[i];
-  //   newTrEl.appendChild(newTdEl);
-  //   tableToTarget.appendChild(newTrEl);
-// }
 }
 
 function renderTableHeader(table){
-   // create table for results
-  
-  //create the header row
+  //create the header row for the results table
   var newTrEl = document.createElement('tr');
   var newThEl = document.createElement('th');
   newThEl.textContent = 'NAME';

@@ -17,14 +17,14 @@ function getUsersFromLocalStorage(){
 
 // create colorArray for balloons
 Balloon.colorArray = [
-  { color: 'red', colorPic: 'assets/red-balloon.png' },
-  { color: 'blue', colorPic: 'assets/blue-balloon.png' },
-  { color: 'green', colorPic: 'assets/green-balloon.png' },
-  { color: 'yellow', colorPic: 'assets/yellow-balloon.png' },
-  { color: 'purple', colorPic: 'assets/purple-balloon.png' },
-  { color: 'pink', colorPic: 'assets/pink-balloon.png' },
-  { color: 'orange', colorPic: 'assets/orange-balloon.png' },
-  { color: 'light-blue', colorPic: 'assets/light-blue-balloon.png' },
+  { color: 'red', colorPic: 'assets/red-balloon.png', value: 'rgb(241,3,0)'},
+  { color: 'blue', colorPic: 'assets/blue-balloon.png', value: 'rgb(0,70,167)'},
+  { color: 'green', colorPic: 'assets/green-balloon.png', value: 'rgb(60,154,0)'},
+  { color: 'yellow', colorPic: 'assets/yellow-balloon.png', value: 'rgb(254,215,0)'},
+  { color: 'purple', colorPic: 'assets/purple-balloon.png', value: 'rgb(143,3,171)'},
+  { color: 'pink', colorPic: 'assets/pink-balloon.png', value: 'rgb(255,0,117)'},
+  { color: 'orange', colorPic: 'assets/orange-balloon.png', value: 'rgb(255,101,2)'},
+  { color: 'light-blue', colorPic: 'assets/light-blue-balloon.png', value: 'rgb(0,176,228)'},
 ];
 
 // create constructor for Balloons
@@ -91,7 +91,7 @@ function balloonClickHandler(event) {
     User.userArray[User.userArray.length - 1].currentScore++;
     popBalloon();
   } else {
-    for (var i = 1; i < Balloon.colorArray.length; i++) {
+    for (var i = 0; i < Balloon.colorArray.length; i++) {
       if (event.target.id === Balloon.colorArray[i].color) {
         // else color !== 'selected-color', remove points from score
         User.userArray[User.userArray.length - 1].currentScore--;
@@ -113,7 +113,7 @@ function renderInstructions() {
   var h1 = document.createElement('h1');
   h1.id = 'instructions';
   h1.innerHTML = 'Click the ' + Balloon.colorArray[Balloon.goodBalloonArray[0]].color + ' balloons';
-  h1.style.backgroundColor = Balloon.colorArray[Balloon.goodBalloonArray[0]].color;
+  h1.style.backgroundColor = Balloon.colorArray[Balloon.goodBalloonArray[0]].value;
   setInterval(function() {
     h1.style.backgroundColor = '';
   }, 1000);
@@ -122,11 +122,9 @@ function renderInstructions() {
 }
 Balloon.goodBalloonArray = [];
 function goodBalloon(){
-  console.log('random index array start of the render ' + Balloon.goodBalloonArray);
   Balloon.goodBalloonArray = [];
-  console.log('random index array after it was cleared ' + Balloon.goodBalloonArray);
 
-  var randomIndex = Math.floor(Math.random() * (Balloon.colorArray.length -1));
+  var randomIndex = Math.floor(Math.random() * (Balloon.colorArray.length));
   Balloon.goodBalloonArray.push(randomIndex)
   console.log('random index' + randomIndex);
   console.log('random index array after it was pushed ' + Balloon.goodBalloonArray);
@@ -148,7 +146,7 @@ function badBalloon(){
   var target = document.getElementById('game');
   var balloonLeft = Math.floor(Math.random() * (100 - 10));
   var balloonTop = Math.floor(Math.random() * (90 - 15) + 10);
-  var randomIndex = Math.floor(Math.random() * (Balloon.colorArray.length -1));
+  var randomIndex = Math.floor(Math.random() * (Balloon.colorArray.length));
   console.log(randomIndex);
   var createImg = document.createElement('img');
   var newRandomBalloon = new Balloon(randomIndex);
@@ -192,7 +190,7 @@ function renderBalloons() {
     balloonCount = balloonCount + 1;
     for (i = 0; i < randomBalloon; i++) {
       //loop for the target balloons
-     badBalloon();
+      badBalloon();
     }
     randomBalloon = randomBalloon + 2;
     sec = sec - 3;
