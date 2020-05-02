@@ -10,6 +10,7 @@ if (localStorage.getItem('resultsInLocalStorage')){
 
 function getUsersFromLocalStorage(){
   var users = JSON.parse(localStorage.getItem('resultsInLocalStorage'));
+  console.log('users from local storage ' + users);
   for (var i = 0; i < users.length; i++){
     User.userArray.push(users[i]);
   }
@@ -37,7 +38,7 @@ function Balloon(index) {
 // create constructor for user
 // allScores is an array of all the scores/attempts at playing the game
 function User(name) {
-  this.name = name;
+  this.name = name.toUpperCase();
   this.currentScore = 0;
   this.highScore = 0;
   this.allScores = [];
@@ -68,7 +69,26 @@ formSubmission.addEventListener('submit', submitHandler);
 function submitHandler(event) {
   event.preventDefault();
   var userValue = document.getElementById('name');
-  new User(userValue.value);
+  var newUser = true;
+  console.log('userArray before new user ' + User.userArray);
+  // //see if user already exists, if so take out of array and put back at the end
+  for (var i = 0; i < User.userArray.length; i++){
+    if (User.userArray[i].name === userValue.value.toUpperCase()){
+      var removedUser = User.userArray.splice(i,1);
+      console.log('removedUser ' + removedUser);
+      console.log('userArray after splice ' + User.userArray);
+      removedUser[0].currentScore = 0;
+      User.userArray.push(removedUser[0]);
+      newUser = false;
+      break;
+    }
+  } 
+  console.log('newUser is ' + newUser); 
+  if (newUser) {
+    new User(userValue.value);
+  } 
+  // new User(userValue.value); 
+  debugger;
   var target = document.getElementById('deleteMe');
   target.innerHTML = '';
   var createDiv = document.createElement('div');
@@ -272,6 +292,11 @@ function endGame() {
   User.userArray[User.userArray.length - 1].allScores.push(
     User.userArray[User.userArray.length - 1].currentScore
   );
+  // update highScore if currentScore is higher
+  if (User.userArray[User.userArray.length -1].currentScore > User.userArray[User.userArray.length -1].highScore){
+    User.userArray[User.userArray.length -1].highScore = User.userArray[User.userArray.length -1].currentScore;
+  }
+
   // store userArray array in local storage
   var stringyUserResults = JSON.stringify(User.userArray);
   localStorage.setItem('resultsInLocalStorage', stringyUserResults);
