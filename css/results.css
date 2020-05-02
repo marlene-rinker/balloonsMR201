@@ -3,24 +3,19 @@ table {
   text-align: center;
   margin-top: 15px;
   padding-top: 30px;
-  
+  table-layout: auto;
+  width: 50%;
 }
 
 th {
   font-weight: bolder;
 }
 
-th,
-td {
-  border: 1px solid rgb(13, 14, 13);
+
+th, td {
+  border: 3px solid rgb(98,2,171);
   padding: 10px;
   font-size: 24px;
-}
-
-th,td {
-  border:1px solid rgb(13, 14, 13);
-  padding: 10px;
-  font-size:24px;
 }
 
 main {
@@ -29,13 +24,13 @@ main {
 
 h2 {
   text-align: center;
-  padding-top: 20px;
+  padding-top: 30px;
   color: rgb(98,2,171);
   font-size: 24px;
 }
 
 footer {
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 #resetScores {

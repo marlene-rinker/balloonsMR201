@@ -55,12 +55,12 @@ function renderCurrentScore() {
 }
 
 function popBalloon(){
-  var audio = new Audio("assets/Balloon-pop.mp3");
+  var audio = new Audio('assets/Balloon-pop.mp3');
   audio.play();
 }
 
 // create event listener for form
-// this will be targetting the submit/play button
+// this will be targeting the submit/play button
 var formSubmission = document.getElementById('form');
 formSubmission.addEventListener('submit', submitHandler);
 
@@ -169,7 +169,6 @@ function renderBalloons() {
   renderInstructions();
   balloonCount = balloonCount + 1;
   badBalloon();
-  debugger;
 
   var sec = 25;
   for (var i = 0; i < randomBalloon; i++) {
@@ -283,3 +282,8 @@ function endGame() {
     window.location = 'results.html';
   }, 6000);
 }
+
+var seeScoresButton = document.getElementById('seeScores');
+seeScoresButton.addEventListener('click', function(){
+  window.location = 'results.html';
+});

@@ -3,7 +3,7 @@ body {
 }
 
 header {
-  border-bottom: 1px solid black;
+  border-bottom: 3px solid rgb(80, 79, 79);
 }
 
 nav {
@@ -17,9 +17,6 @@ nav {
   width: 35vw;
 }
 
-footer > ul > li {
-  display: inline;
-}
 
 .center {
   display: block;
@@ -28,11 +25,17 @@ footer > ul > li {
 }
 
 footer {
-  text-align: center;
-  border-top: 1px solid black;
-  font-size: 16px;
-  padding-top: 70px;
-  height: 15vh;
+  margin-top: 30px;
+  border-top: 3px solid rgb(80, 79, 79);
+  padding-top: 5px;
+  height: 5vh;
+  }
+
+  footer p {
+    font-size: 16px;
+    color: rgb(60,154,0);
+    text-align: center;
+    padding-top: 5px;
   }
 
 a {
