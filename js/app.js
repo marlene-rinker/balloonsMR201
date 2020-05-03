@@ -87,8 +87,6 @@ function submitHandler(event) {
   if (newUser) {
     new User(userValue.value);
   } 
-  // new User(userValue.value); 
-  debugger;
   var target = document.getElementById('deleteMe');
   target.innerHTML = '';
   var createDiv = document.createElement('div');

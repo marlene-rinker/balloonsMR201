@@ -4,19 +4,37 @@ function renderResults() {
   // get results from local storage
   var stringResultsInStorage = JSON.parse(localStorage.getItem('resultsInLocalStorage'));
   var tableToTarget = document.getElementById('results');
-  renderTableHeader(tableToTarget);
+  // renderTableHeader(tableToTarget);
+
+  var scoreRow = document.createElement('tr');
+  var scoreTd = document.createElement('td');
+  scoreTd.textContent = 'Your score:';
+  scoreRow.appendChild(scoreTd);
+  scoreTd = document.createElement('td');
+  scoreTd.textContent = stringResultsInStorage[stringResultsInStorage.length -1].currentScore;
+  scoreRow.appendChild(scoreTd);
+  tableToTarget.appendChild(scoreRow);
+
+  scoreRow = document.createElement('tr');
+  scoreTd = document.createElement('td');
+  scoreTd.textContent = 'Your high score:';
+  scoreRow.appendChild(scoreTd);
+  scoreTd = document.createElement('td');
+  scoreTd.textContent = stringResultsInStorage[stringResultsInStorage.length -1].highScore;
+  scoreRow.appendChild(scoreTd);
+  tableToTarget.appendChild(scoreRow);
 
   // put game results inside table
-  for (var i = 0; i < stringResultsInStorage[stringResultsInStorage.length - 1].allScores.length; i++) {
-    var newTrEl = document.createElement('tr');
-    var newTdEl = document.createElement('td');
-    newTdEl.textContent = stringResultsInStorage[stringResultsInStorage.length - 1].name;
-    newTrEl.appendChild(newTdEl);
-    newTdEl = document.createElement('td');
-    newTdEl.textContent = stringResultsInStorage[stringResultsInStorage.length - 1].allScores[i];
-    newTrEl.appendChild(newTdEl);
-    tableToTarget.appendChild(newTrEl);
-  }
+  // for (var i = 0; i < stringResultsInStorage[stringResultsInStorage.length - 1].allScores.length; i++) {
+  //   var newTrEl = document.createElement('tr');
+  //   var newTdEl = document.createElement('td');
+  //   newTdEl.textContent = stringResultsInStorage[stringResultsInStorage.length - 1].name;
+  //   newTrEl.appendChild(newTdEl);
+  //   newTdEl = document.createElement('td');
+  //   newTdEl.textContent = stringResultsInStorage[stringResultsInStorage.length - 1].allScores[i];
+  //   newTrEl.appendChild(newTdEl);
+  //   tableToTarget.appendChild(newTrEl);
+  // }
 
   // create past results table
   tableToTarget = document.getElementById('past-results');
@@ -28,8 +46,8 @@ function renderResults() {
   var num = stringResultsInStorage.length -2;
     for (var j = num; j >= 0; j--){
       if (rows < maxResults){
-        newTrEl = document.createElement('tr');
-        newTdEl = document.createElement('td');
+        var newTrEl = document.createElement('tr');
+        var newTdEl = document.createElement('td');
         newTdEl.textContent = stringResultsInStorage[j].name;
 
         newTrEl.appendChild(newTdEl);
