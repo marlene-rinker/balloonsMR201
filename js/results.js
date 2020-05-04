@@ -2,7 +2,17 @@
 'use strict';
 function renderResults() {
   // get results from local storage
+
+  var greeting;
+  greeting = document.getElementById('greeting');
+
+  if (!localStorage.getItem('resultsInLocalStorage')){
+    greeting.textContent = 'No results yet!';
+  }
   var stringResultsInStorage = JSON.parse(localStorage.getItem('resultsInLocalStorage'));
+
+  var player = formatName(stringResultsInStorage[stringResultsInStorage.length -1].name);
+    greeting.textContent = 'Thanks for playing, ' + player + '!';
   var tableToTarget = document.getElementById('results');
   // renderTableHeader(tableToTarget);
 
@@ -37,27 +47,37 @@ function renderResults() {
   // }
 
   // create past results table
-  tableToTarget = document.getElementById('past-results');
-  renderTableHeader(tableToTarget);
+  if (stringResultsInStorage.length > 1) {
+    var heading = document.getElementById('other-players');
+    heading.textContent = 'Other Players\' High Scores';
+    tableToTarget = document.getElementById('past-results');
+    renderTableHeader(tableToTarget);
 
 
-  var maxResults = 10;
-  var rows = 0;
-  var num = stringResultsInStorage.length -2;
-    for (var j = num; j >= 0; j--){
-      if (rows < maxResults){
-        var newTrEl = document.createElement('tr');
-        var newTdEl = document.createElement('td');
-        newTdEl.textContent = stringResultsInStorage[j].name;
+    var maxResults = 10;
+    var rows = 0;
+    var num = stringResultsInStorage.length -2;
+      for (var j = num; j >= 0; j--){
+        if (rows < maxResults){
+          var newTrEl = document.createElement('tr');
+          var newTdEl = document.createElement('td');
+          newTdEl.textContent = stringResultsInStorage[j].name;
 
-        newTrEl.appendChild(newTdEl);
-        newTdEl = document.createElement('td');
-        newTdEl.textContent = stringResultsInStorage[j].currentScore;
-        newTrEl.appendChild(newTdEl);
-        tableToTarget.appendChild(newTrEl);
-        rows++;
+          newTrEl.appendChild(newTdEl);
+          newTdEl = document.createElement('td');
+          newTdEl.textContent = stringResultsInStorage[j].highScore;
+          newTrEl.appendChild(newTdEl);
+          tableToTarget.appendChild(newTrEl);
+          rows++;
+          }
         }
-      }
+  }
+
+}
+
+function formatName (name){
+  var newName = name.toLowerCase();
+  return newName.charAt(0).toUpperCase() + newName.slice(1);
 }
 
 function renderTableHeader(table){
