@@ -1,22 +1,26 @@
 ![Balloons](assets/balloon-logo.png)
 
-## By: Bryant Davis, Marlene Rinker, Dave Wolfe, & Melissa Galush
-### Final Project for Code Fellows 201  | Version 1.0.0
+### Balloons | Version 2.0
 
-Individuals with cognitive issues lack a fun and interactive way to improve their cognitive abilities, so we set out to help them with this issue.
+This was originally developed as a final project for Code Fellows 201 by Bryant Davis, Marlene Rinker, Dave Wolfe, & Melissa Galush. 
+[Link to original game](https://mgalush.github.io/balloons/)
 
-We decided to create a game to improve hand-eye coordination.
-The object of the game is to pop balloons of a specified color as they appear on the screen.  As the game progresses, the balloons increase in frequency and quantity.  Points are awarded for each balloon popped and a score will be calculated.  The total score will be displayed in a chart displaying previous players’ scores.
+After the 201 class, I modified the project as practice before 301 started.
 
-## User stories
-[Project management board](https://github.com/mgalush/balloons/projects/1)
-## Wireframe
-![wireframe](assets/balloons-wireframe.png)
+In this version:
 
-## Domain Model
-![domain-model-overview](assets/domain-model.png)
+- the balloons move
 
-![domain-model-js](assets/domain-model-js.png)
+- the header components of the game have backgrounds
+
+- the instructions are shorter
+
+- the form inputs are larger
+
+- it knows if you are a returning user (before all users were new users)
+
+- it displays your score and your high score on the results page, along with score of other players who have played the game
+
 
 ## Licenses
 **Balloon Pop Sound Effect**
