@@ -301,12 +301,13 @@ function endGame() {
 
   setTimeout( function(){
     // send user to results page
-    // window.location.href = 'https://mgalush.github.io/balloons/results';
-    window.location = 'results.html';
+    window.location.href = 'https://marlene-rinker.github.io/balloonsMR201/results.html';
+    // window.location = 'results.html';
   }, 6000);
 }
 
 var seeScoresButton = document.getElementById('seeScores');
 seeScoresButton.addEventListener('click', function(){
-  window.location = 'results.html';
+  window.location.href = 'https://marlene-rinker.github.io/balloonsMR201/results.html';
+  // window.location = 'results.html';
 });
