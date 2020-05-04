@@ -7,7 +7,7 @@ function renderResults() {
   greeting = document.getElementById('greeting');
 
   if (!localStorage.getItem('resultsInLocalStorage')){
-    greeting.textContent = 'No results yet!';
+    greeting.textContent = 'No scores yet!';
   }
   var stringResultsInStorage = JSON.parse(localStorage.getItem('resultsInLocalStorage'));
 
